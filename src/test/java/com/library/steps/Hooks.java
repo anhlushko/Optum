@@ -19,9 +19,7 @@ public class Hooks {
 
     @Before("@ui")
     public void setUp(){
-        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        Driver.getDriver().manage().window().maximize();
-        Driver.getDriver().get(ConfigurationReader.getProperty("library_url"));
+        System.out.println("Run before each Scenario");
 
     }
 
@@ -31,21 +29,6 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot,"image/png","screenshot");
         }
-
         Driver.closeDriver();
-
     }
-
-    @Before("@db")
-    public void setUpDB(){
-        System.out.println("Connecting to database...");
-        DB_Util.createConnection();
-    }
-
-    @After("@db")
-    public void tearDownDB(){
-        System.out.println("close database connection...");
-        DB_Util.destroy();
-    }
-
 }
