@@ -10,12 +10,17 @@ public class MainPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "//*[@id=\"Sign-in-77484\"]/i")
+
+    @FindBy(xpath = "//button[contains(@id,'Sign-in')]")
     public WebElement signIn;
 
-    @FindBy(xpath = "//div[@class='o4-utility__sub js-utility-dd']//span[.='Individuals and families']")
+
+    @FindBy(xpath = "//a[@class='o4-utility__sublink']/span[.='Individuals and families']")
     public WebElement IndividualsAndFamiliesBtn;
+
+
 
     @FindBy(xpath = "//a[@aria-label='Register Optum Store']")
     public WebElement optumStoreRegisterBtn;
 }
+

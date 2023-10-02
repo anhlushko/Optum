@@ -20,14 +20,11 @@ public class RegisterForm_StepDef {
     OptumStoreRegisterPage storeRegisterPage = new OptumStoreRegisterPage();
 
     Faker faker = new Faker();
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(10));
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(5));
 
     @Given("user is on optum page")
     public void user_is_on_optum_page() {
-        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        Driver.getDriver().manage().window().maximize();
         Driver.getDriver().get(ConfigurationReader.getProperty("optum_url"));
-
     }
 
     @When("user click on Sign in")
@@ -40,7 +37,7 @@ public class RegisterForm_StepDef {
     @When("user click on Individuals and families")
     public void user_click_on_individuals_and_families() {
 
-wait.until(ExpectedConditions.visibilityOf(mainPage.IndividualsAndFamiliesBtn));
+//wait.until(ExpectedConditions.visibilityOf(mainPage.IndividualsAndFamiliesBtn));
 
       mainPage.IndividualsAndFamiliesBtn.click();
     }
@@ -62,7 +59,7 @@ wait.until(ExpectedConditions.visibilityOf(mainPage.IndividualsAndFamiliesBtn));
 
     @When("enter valid email")
     public void enter_valid_email() {
-        storeRegisterPage.phoneNumberBox.sendKeys(faker.phoneNumber().cellPhone());
+        storeRegisterPage.phoneNumberBox.sendKeys("2679128070");
     }
 
     @Then("create a valid password")
@@ -72,6 +69,7 @@ wait.until(ExpectedConditions.visibilityOf(mainPage.IndividualsAndFamiliesBtn));
 
     @Then("click on radio button I agree to Optum Store's Terms of Service and Privacy Policy")
     public void click_on_radio_button_i_agree_to_optum_store_s_terms_of_service_and_privacy_policy() {
+        wait.until(ExpectedConditions.elementToBeClickable(storeRegisterPage.TermsOfUseAndPrivacyPolicyBox));
         storeRegisterPage.TermsOfUseAndPrivacyPolicyBox.click();
     }
 

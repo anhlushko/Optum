@@ -38,13 +38,13 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.11.0</version>
+            <version>4.13.0</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.5.2</version>
+            <version>5.5.3</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
@@ -82,25 +82,26 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+
     <build>
         <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.0.0-M5</version>
-            <configuration>
-                <parallel>methods</parallel>
-                <useUnlimitedThreads>false</useUnlimitedThreads>
-                <threadCount>4</threadCount>
-                <perCoreThreadCount>false</perCoreThreadCount>
-                <testFailureIgnore>true</testFailureIgnore>
-                <includes>
-                    <include>**/CukesRunner*.java</include>
-                    <include>**/FailedTestRunner*.java</include>
-                </includes>
-            </configuration>
-        </plugin>
-    </plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <parallel>methods</parallel>
+                    <useUnlimitedThreads>false</useUnlimitedThreads>
+                    <threadCount>4</threadCount>
+                    <perCoreThreadCount>false</perCoreThreadCount>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <includes>
+                        <include>**/CukesRunner*.java</include>
+                        <include>**/FailedTestRunner*.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
-
 </project>
