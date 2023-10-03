@@ -5,6 +5,7 @@ import com.optum.pages.MainPage;
 import com.optum.pages.OptumStoreRegisterPage;
 import com.optum.utility.ConfigurationReader;
 import com.optum.utility.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -59,12 +60,12 @@ public class RegisterForm_StepDef {
 
     @When("enter valid email")
     public void enter_valid_email() {
-        storeRegisterPage.phoneNumberBox.sendKeys("2679128070");
+        storeRegisterPage.emailBox.sendKeys(faker.internet().emailAddress());
     }
 
     @Then("create a valid password")
     public void create_a_valid_password() {
-        storeRegisterPage.emailBox.sendKeys(faker.internet().emailAddress());
+        storeRegisterPage.emailBox.sendKeys("Ha11111!");
     }
 
     @Then("click on radio button I agree to Optum Store's Terms of Service and Privacy Policy")
@@ -76,5 +77,10 @@ public class RegisterForm_StepDef {
     @Then("user click on Continue button")
     public void user_click_on_continue_button() {
         storeRegisterPage.continueBtn.click();
+    }
+
+    @And("enter valid phone number")
+    public void enterValidPhoneNumber() {
+        storeRegisterPage.phoneNumberBox.sendKeys("2679128070");
     }
 }

@@ -10,6 +10,7 @@ Feature: Registration form to Optum Store
     And enter last name
     And enter valid email
     Then create a valid password
+    And enter valid phone number
     And click on radio button I agree to Optum Store's Terms of Service and Privacy Policy
     Then user click on Continue button
 
